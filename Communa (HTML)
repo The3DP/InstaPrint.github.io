@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filament Color Selection</title>
+    <style>
+        .color-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .color-btn.red {
+            background-color: #FF6347;
+            color: white;
+        }
+        .color-btn.blue {
+            background-color: #4682B4;
+            color: white;
+        }
+        .color-btn.green {
+            background-color: #32CD32;
+            color: white;
+        }
+        .color-btn.black {
+            background-color: #000000;
+            color: white;
+        }
+        .color-btn.white {
+            background-color: #FFFFFF;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Filament Color Selection</h2>
+    <form action="send_email.php" method="post">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <label>Select Your Filament Color:</label><br>
+        <input type="radio" id="red" name="filament_color" value="Red">
+        <label class="color-btn red" for="red">Red</label>
+
+        <input type="radio" id="blue" name="filament_color" value="Blue">
+        <label class="color-btn blue" for="blue">Blue</label>
+
+        <input type="radio" id="green" name="filament_color" value="Green">
+        <label class="color-btn green" for="green">Green</label>
+
+        <input type="radio" id="black" name="filament_color" value="Black">
+        <label class="color-btn black" for="black">Black</label>
+
+        <input type="radio" id="white" name="filament_color" value="White">
+        <label class="color-btn white" for="white">White</label><br><br>
+
+        <input type="submit" value="Send Order">
+    </form>
+</body>
+</html>
 
