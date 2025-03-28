@@ -1,3 +1,67 @@
 # This is a test part of Comunna, the main code.
+-----------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filament Color Selection</title>
+    <style>
+        .color-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .color-btn.red {
+            background-color: #B22222; /* Darker red */
+            color: white;
+        }
+        .color-btn.blue {
+            background-color: #4169E1; /* Darker blue */
+            color: white;
+        }
+        .color-btn.green {
+            background-color: #32CD32; /* Green (unchanged) */
+            color: white;
+        }
+        .color-btn.black {
+            background-color: #333333; /* Darker black */
+            color: white;
+        }
+        .color-btn.white {
+            background-color: #FFFFFF;
+            color: black;
+            border: 2px solid black; /* Border around the white button */
+        }
+    </style>
+</head>
+<body>
+    <h2>Filament Color Selection</h2>
+    <form action="send_email.php" method="post">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <label>Select Your Filament Color:</label><br>
+        <!-- Only Green and Blue are available for selection -->
+        <input type="radio" id="green" name="filament_color" value="Green" required>
+        <label class="color-btn green" for="green">Green</label>
+
+        <input type="radio" id="blue" name="filament_color" value="Blue" required>
+        <label class="color-btn blue" for="blue">Blue</label><br><br>
+
+        <input type="submit" value="Send Order">
+    </form>
+</body>
+</html>
 
 
