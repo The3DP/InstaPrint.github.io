@@ -1,1 +1,116 @@
 
+<?php
+// PHP code for processing the form and sending the email
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $filament_color = $_POST['filament_color'];
+
+    // Set up email parameters
+    $to = "d73928430@gmail.com"; // Replace with your email address
+    $subject = "Filament Color Selection - Order";
+    $body = "Name: $name\nEmail: $email\nMessage: $message\nFilament Color: $filament_color";
+
+    // Send the email
+    if (mail($to, $subject, $body)) {
+        $success_message = "Your message has been sent successfully!";
+    } else {
+        $error_message = "There was an error sending your message.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filament Color Selection</title>
+    <style>
+        .color-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .color-btn.red {
+            background-color: #B22222; /* Darker red */
+            color: white;
+            opacity: 0.5; /* Grayed-out appearance */
+            cursor: not-allowed; /* Disable clicking */
+        }
+        .color-btn.blue {
+            background-color: #4169E1; /* Darker blue */
+            color: white;
+            opacity: 1; /* Unshaded (full opacity) */
+            cursor: pointer; /* Enable clicking */
+        }
+        .color-btn.green {
+            background-color: #32CD32; /* Green (unchanged) */
+            color: white;
+        }
+        .color-btn.black {
+            background-color: #333333; /* Darker black */
+            color: white;
+            opacity: 0.5; /* Grayed-out appearance */
+            cursor: not-allowed; /* Disable clicking */
+        }
+        .color-btn.white {
+            background-color: #FFFFFF;
+            color: black;
+            border: 2px solid black; /* Border around the white button */
+            opacity: 0.5; /* Grayed-out appearance */
+            cursor: not-allowed; /* Disable clicking */
+        }
+        input[type="radio"]:disabled {
+            display: none; /* Hide the disabled radio buttons */
+        }
+    </style>
+</head>
+<body>
+    <h2>Filament Color Selection</h2>
+
+    <!-- Display success or error message after form submission -->
+    <?php if (isset($success_message)): ?>
+        <p style="color: green;"><?php echo $success_message; ?></p>
+    <?php elseif (isset($error_message)): ?>
+        <p style="color: red;"><?php echo $error_message; ?></p>
+    <?php endif; ?>
+
+    <form action="" method="post">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <label>Select Your Filament Color:</label><br>
+        <!-- Only Green and Blue are selectable, others are disabled and shaded -->
+        <input type="radio" id="green" name="filament_color" value="Green" required>
+        <label class="color-btn green" for="green">Green</label>
+
+        <input type="radio" id="blue" name="filament_color" value="Blue" required>
+        <label class="color-btn blue" for="blue">Blue</label>
+
+        <!-- Other colors displayed but not clickable -->
+        <input type="radio" id="red" name="filament_color" value="Red" disabled>
+        <label class="color-btn red" for="red">Red</label>
+
+        <input type="radio" id="black" name="filament_color" value="Black" disabled>
+        <label class="color-btn black" for="black">Black</label>
+
+        <input type="radio" id="white" name="filament_color" value="White" disabled>
+        <label class="color-btn white" for="white">White</label><br><br>
+
+        <input type="submit" value="Send Order">
+    </form>
+</body>
+</html>
