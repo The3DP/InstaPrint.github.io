@@ -4,3 +4,6 @@ PrintCast is an innovative, cutting-edge solution that redefines convenience for
 Why is InstaPrint beneficial toward me? (please wait this field is not fully completed)
 A:
 --------------------------------------
+Q:
+A:
+--------------------------------------
