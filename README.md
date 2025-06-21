@@ -1,4 +1,3 @@
-<p align="center"> InstaPrint
 InstaPrint is an innovative, cutting-edge solution that redefines convenience. With a simple yet powerful premise, it allows you to seamlessly send emails directly to a bot that instantly activates printers that are ultra fast. Instantly sending your documents, photos, or files from any device is simply convenient in every way. 
 ##
 Recommended Testing Sites (RTS) 
@@ -18,4 +17,3 @@ CC0 1.0 Universal" please contact me at my public email:
 d73928430@gmail.com
 
 - The3DP
-##
